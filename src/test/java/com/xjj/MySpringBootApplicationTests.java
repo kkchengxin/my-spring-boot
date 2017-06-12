@@ -5,6 +5,7 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -61,10 +62,24 @@ public class MySpringBootApplicationTests extends BasicUtClass{
 	}
 
 	@Test
-	public void dbTest() throws JsonProcessingException{
+	public void mysqlInsertTest(){
+		for(int i=0; i<5; i++){
+			Person person = new Person();
+			person.setFirstName("kk"+i);
+			person.setLastName("kt"+i);
+			person.setBirthDate(new Date());
+			person.setPhoneNo("1581028305"+i);
+			person.setSex('M');
+			personDAO.insertPerson(person);
+		}
+	}
+	@Test
+	public void mysqlTest() throws JsonProcessingException{
 		Person person2 = personDAO.getPersonById(2);
 		logger.info("person no 2 is: {}", objectMapper.writeValueAsString(person2));
-		
+		if(person2 == null){
+			person2 = new Person();
+		}
 		person2.setFirstName("八");
 		personDAO.updatePersonById(person2);
 		person2 = personDAO.getPersonById(2);
@@ -82,7 +97,7 @@ public class MySpringBootApplicationTests extends BasicUtClass{
 		logger.info("db name: {}", dbName);
 		assertThat(dbName, is("test"));
 		
-		for(int i=3;i<=25;i++){
+		for(int i=0;i<=5;i++){
 			Person p = personDAO.getPersonById(i);
 			if(p!=null){
 				mongoTemplate.save(p);

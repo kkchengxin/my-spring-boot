@@ -60,7 +60,7 @@ public class XDateUtils {
 	/**
 	 * 字符串转换为Date对象，自动匹配日期格式
 	 * 
-	 * @param strDate 日期字符串
+	 * @param dateStr 日期字符串
 	 * @return Date
 	 */
 	public static Date stringToDate(String dateStr) {
@@ -120,7 +120,7 @@ public class XDateUtils {
 	/**
 	 * 将指定的日期转换成long时间戳
 	 * 
-	 * @param String date 需要转换的日期
+	 * @param String dateStr 需要转换的日期
 	 * @param String dateFormat 需要转换的日期格式
 	 * @return long 时间戳，单位：秒
 	 */

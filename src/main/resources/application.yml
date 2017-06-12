@@ -3,7 +3,7 @@
 #   生产环境：java -jar my-spring-boot.jar --spring.profiles.active=prod
 spring:
   profiles:
-    active: dev
+    active: test
 #  cache:
 #    type: CAFFEINE #指定cache类型
 #    cache-names:
@@ -54,19 +54,27 @@ info:
 spring:
   profiles: dev
   redis:
-    cluster:
-      nodes:
-        - 192.168.0.17:6390
-        - 192.168.0.17:6391
-        - 192.168.0.17:6392
-        - 192.168.0.9:6390
-        - 192.168.0.9:6391
-        - 192.168.0.9:6392
+    host: 192.168.10.116
+    password:
+    port: 6379
+    pool:
+        max-idle: 100
+        min-idle: 1
+        max-active: 1000
+        max-wait: -1
+#    cluster:
+#      nodes:
+#        - 10.153.106.124:18337
+#        - 10.153.106.124:18337
+#        - 192.168.0.17:6392
+#        - 192.168.0.9:6390
+#        - 192.168.0.9:6391
+#        - 192.168.0.9:6392
   datasource:
-    url: jdbc:mysql://localhost:3306/
+    url: jdbc:mysql://192.168.10.116:3306?useUnicode=true&characterEncoding=utf8
   data:
     mongodb:
-      uri: mongodb://192.168.0.9:27017/test
+      uri: mongodb://192.168.10.116:27017/test
 
 myProps: #自定义的属性和值
   simpleProp: simplePropValue
@@ -87,12 +95,24 @@ myProps: #自定义的属性和值
 # 测试环境配置
 spring:
   profiles: test
+  redis:
+      host: 192.168.126.116
+      password:
+      port: 6379
+      pool:
+          max-idle: 100
+          min-idle: 1
+          max-active: 1000
+          max-wait: -1
   datasource:
-    url: jdbc:mysql://192.168.0.12:3306/
+    url: jdbc:mysql://192.168.126.116:3306?useUnicode=true&characterEncoding=utf8
+  data:
+    mongodb:
+      uri: mongodb://192.168.126.116:27017/test
   
 ---
 # 生产环境配置
 spring:
   profiles: prod
   datasource:
-    url: jdbc:mysql://192.168.0.13:3306/
+    url: jdbc:mysql://192.168.0.13:3306?useUnicode=true&characterEncoding=utf8

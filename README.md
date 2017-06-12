@@ -5,7 +5,7 @@
 - log4j2 configuration
 - mySql and myBatis configuration
 - mongoDB configuration
-- Redis Cluster configuration
+- Redis Cluster configuration（Redis 单机）
 - Caffeine Cache configuration
 - RESTful API
 - Different configuration profiles for different environments
