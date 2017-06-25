@@ -1,0 +1,22 @@
+# 测试环境配置
+spring:
+  profiles: test
+  redis:
+      host: 192.168.126.116
+      password:
+      port: 6379
+      pool:
+          max-idle: 100
+          min-idle: 1
+          max-active: 1000
+          max-wait: -1
+  datasource:
+    url: jdbc:mysql://192.168.126.116:3306/test?useUnicode=true&characterEncoding=utf8
+  data:
+    mongodb:
+      uri: mongodb://192.168.126.116:27017/test
+#jpa配置
+  jpa:
+    show-sql:  true
+    hibernate:
+      ddl-auto: update

@@ -1,0 +1,25 @@
+# 开发环境配置
+spring:
+  profiles: dev
+  redis:
+    host: 192.168.10.116
+    password:
+    port: 6379
+    pool:
+        max-idle: 100
+        min-idle: 1
+        max-active: 1000
+        max-wait: -1
+#    cluster:
+#      nodes:
+#        - 10.153.106.124:18337
+#        - 10.153.106.124:18337
+#        - 192.168.0.17:6392
+#        - 192.168.0.9:6390
+#        - 192.168.0.9:6391
+#        - 192.168.0.9:6392
+  datasource:
+    url: jdbc:mysql://192.168.10.116:3306?useUnicode=true&characterEncoding=utf8
+  data:
+    mongodb:
+      uri: mongodb://192.168.10.116:27017/test

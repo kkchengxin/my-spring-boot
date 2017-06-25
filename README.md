@@ -18,3 +18,7 @@
 - Actuator: service status monitor
 - AOP, intercepter
 - websocket: server(java) and client(html with vue.js)
+- 新加lombok
+- jpa支持 kk-jpa
+- couchbase支持 kk-couchBase https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-data-couchbase
+- swagger2支持
